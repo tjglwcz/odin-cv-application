@@ -1,4 +1,6 @@
-export default function ExperienceForm({ experience, handleInputChange }) {
+import React from "react";
+
+const ExperienceForm = ({ experience, handleInputChange }) => {
   return (
     <div className="min-h-24 p-4 m-2 shadow-md rounded w-full">
       <form action="/" className="flex flex-col gap-2">
@@ -8,7 +10,7 @@ export default function ExperienceForm({ experience, handleInputChange }) {
           name="companyName"
           id="companyName"
           value={experience.companyName}
-          onChange={handleInputChange(setExperience)}
+          onChange={handleInputChange}
           className="bg-slate-100 rounded"
         />
         <label htmlFor="positionTitle">Position Title</label>
@@ -17,7 +19,7 @@ export default function ExperienceForm({ experience, handleInputChange }) {
           name="positionTitle"
           id="positionTitle"
           value={experience.positionTitle}
-          onChange={handleInputChange(setExperience)}
+          onChange={handleInputChange}
           className="bg-slate-100 rounded"
         />
         <label htmlFor="employementDate">Employement Date</label>
@@ -26,7 +28,7 @@ export default function ExperienceForm({ experience, handleInputChange }) {
           name="employementDate"
           id="employementDate"
           value={experience.employementDate}
-          onChange={handleInputChange(setExperience)}
+          onChange={handleInputChange}
           className="bg-slate-100 rounded"
         />
         <label htmlFor="mainResponsibilities">Main Responsibilities</label>
@@ -34,11 +36,11 @@ export default function ExperienceForm({ experience, handleInputChange }) {
           id="mainResponsibities"
           name="mainResponsibilities"
           value={experience.mainResponsibilities}
-          onChange={handleInputChange(setExperience)}
+          onChange={handleInputChange}
           className="bg-slate-100"
-          rounded
         ></textarea>
       </form>
     </div>
   );
-}
+};
+export { ExperienceForm };

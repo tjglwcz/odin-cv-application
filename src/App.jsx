@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { DisplayView } from "./components/view/DisplayView";
 import { GeneralForm } from "./components/form/GeneralForm";
-import EducationForm from "./components/form/EducationForm";
-import ExperienceForm from "./components/form/ExperienceForm";
+import { EducationForm } from "./components/form/EducationForm";
+import { ExperienceForm } from "./components/form/ExperienceForm";
+import { DisplayView } from "./components/view/DisplayView";
 function App() {
   const [general, setGeneral] = useState({
     name: "John Doe",
@@ -33,15 +33,15 @@ function App() {
       <div className="flex flex-col h-screen">
         <GeneralForm
           general={general}
-          handleInputChange={handleInputChange(general)}
+          handleInputChange={handleInputChange(setGeneral)}
         />
         <EducationForm
           education={education}
-          handleInputChange={handleInputChange(education)}
+          handleInputChange={handleInputChange(setEducation)}
         />
         <ExperienceForm
           experience={experience}
-          handleInputChange={handleInputChange(experience)}
+          handleInputChange={handleInputChange(setExperience)}
         />
       </div>
       <div className="flex flex-col h-screen">

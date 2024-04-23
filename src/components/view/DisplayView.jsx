@@ -1,4 +1,6 @@
-export const DisplayView = ({ general, education, experience }) => {
+import React from "react";
+
+const DisplayView = ({ general, education, experience }) => {
   return (
     <>
       <div className="min-h-24 p-4 m-2 shadow-md rounded w-full">
@@ -25,3 +27,5 @@ export const DisplayView = ({ general, education, experience }) => {
     </>
   );
 };
+
+export { DisplayView };

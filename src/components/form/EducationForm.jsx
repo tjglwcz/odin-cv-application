@@ -1,4 +1,6 @@
-export default function EducationForm({ education, handleInputChange }) {
+import React from "react";
+
+const EducationForm = ({ education, handleInputChange }) => {
   return (
     <div className="min-h-24 p-4 m-2 shadow-md rounded w-full">
       <form action="/" className="flex flex-col gap-2">
@@ -8,7 +10,7 @@ export default function EducationForm({ education, handleInputChange }) {
           name="schoolName"
           id="schoolName"
           value={education.schoolName}
-          onChange={handleInputChange(setEducation)}
+          onChange={handleInputChange}
           className="bg-slate-100 rounded"
         />
         <label htmlFor="fieldOfStudy">Field of Study</label>
@@ -17,7 +19,7 @@ export default function EducationForm({ education, handleInputChange }) {
           name="fieldOfStudy"
           id="fieldOfStudy"
           value={education.fieldOfStudy}
-          onChange={handleInputChange(setEducation)}
+          onChange={handleInputChange}
           className="bg-slate-100 rounded"
         />
         <label htmlFor="graduationDate">Graduation Date</label>
@@ -26,10 +28,12 @@ export default function EducationForm({ education, handleInputChange }) {
           name="graduationDate"
           id="graduationDate"
           value={education.graduationDate}
-          onChange={handleInputChange(setEducation)}
+          onChange={handleInputChange}
           className="bg-slate-100 rounded"
         />
       </form>
     </div>
   );
-}
+};
+
+export { EducationForm };
