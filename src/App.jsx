@@ -5,7 +5,11 @@ function App() {
     email: "john@doe.com",
     number: "123321123",
   });
-
+  const [education, setEducation] = useState({
+    schoolName: "Sample School",
+    fieldOfStudy: "Computer Science",
+    graduationDate: "2024-03-01",
+  });
   const handleInputChange = (setter) => (event) => {
     const { name, value } = event.target;
     setter((previousData) => ({
@@ -48,6 +52,37 @@ function App() {
             />
           </form>
         </div>
+        <div className="min-h-24 p-4 m-2 shadow-md rounded w-full">
+          <form action="/" className="flex flex-col gap-2">
+            <label htmlFor="name">School Name</label>
+            <input
+              type="text"
+              name="schoolName"
+              id="schoolName"
+              value={education.schoolName}
+              onChange={handleInputChange(setEducation)}
+              className="bg-slate-100 rounded"
+            />
+            <label htmlFor="email">Field of Study</label>
+            <input
+              type="text"
+              name="fieldOfStudy"
+              id="fieldOfStudy"
+              value={education.fieldOfStudy}
+              onChange={handleInputChange(setEducation)}
+              className="bg-slate-100 rounded"
+            />
+            <label htmlFor="number">Graduation Date</label>
+            <input
+              type="date"
+              name="graduationDate"
+              id="graduationDate"
+              value={education.graduationDate}
+              onChange={handleInputChange(setEducation)}
+              className="bg-slate-100 rounded"
+            />
+          </form>
+        </div>
       </div>
       <div className="flex flex-col h-screen">
         <div className="min-h-24 p-4 m-2 shadow-md rounded w-full">
@@ -58,8 +93,10 @@ function App() {
         </div>
         <h2 className="text-lg font-bold text-center m-4">EDUCATION</h2>
         <div className="min-h-24 p-4 m-2 shadow-md rounded w-full">
-          <h2 className="text-lg text-center"></h2>
-          <p className="text-md text-center">|</p>
+          <h2 className="text-lg text-center">{education.schoolName}</h2>
+          <p className="text-md text-center">
+            {education.fieldOfStudy} | {education.graduationDate}
+          </p>
         </div>
         <h2 className="text-lg font-bold text-center m-4">EXPERIENCE</h2>
         <div className="min-h-24 p-4 m-2 shadow-md rounded w-full">
