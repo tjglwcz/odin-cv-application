@@ -10,6 +10,12 @@ function App() {
     fieldOfStudy: "Computer Science",
     graduationDate: "2024-03-01",
   });
+  const [experience, setExperience] = useState({
+    companyName: "Random Company",
+    positionTitle: "Developer",
+    employementDate: "2024-04-01",
+    mainResponsibilities: "This is a place for main responsibilities.",
+  });
   const handleInputChange = (setter) => (event) => {
     const { name, value } = event.target;
     setter((previousData) => ({
@@ -83,6 +89,46 @@ function App() {
             />
           </form>
         </div>
+        <div className="min-h-24 p-4 m-2 shadow-md rounded w-full">
+          <form action="/" className="flex flex-col gap-2">
+            <label htmlFor="name">Company Name</label>
+            <input
+              type="text"
+              name="companyName"
+              id="companyName"
+              value={experience.companyName}
+              onChange={handleInputChange(setExperience)}
+              className="bg-slate-100 rounded"
+            />
+            <label htmlFor="positionTitle">Position Title</label>
+            <input
+              type="positionTitle"
+              name="positionTitle"
+              id="positionTitle"
+              value={experience.positionTitle}
+              onChange={handleInputChange(setExperience)}
+              className="bg-slate-100 rounded"
+            />
+            <label htmlFor="employementDate">Employement Date</label>
+            <input
+              type="date"
+              name="employementDate"
+              id="employementDate"
+              value={experience.employementDate}
+              onChange={handleInputChange(setExperience)}
+              className="bg-slate-100 rounded"
+            />
+            <label htmlFor="mainResponsibilities">Main Responsibilities</label>
+            <textarea
+              id="mainResponsibities"
+              name="mainResponsibilities"
+              value={experience.mainResponsibilities}
+              onChange={handleInputChange(setExperience)}
+              className="bg-slate-100"
+              rounded
+            ></textarea>
+          </form>
+        </div>
       </div>
       <div className="flex flex-col h-screen">
         <div className="min-h-24 p-4 m-2 shadow-md rounded w-full">
@@ -100,9 +146,11 @@ function App() {
         </div>
         <h2 className="text-lg font-bold text-center m-4">EXPERIENCE</h2>
         <div className="min-h-24 p-4 m-2 shadow-md rounded w-full">
-          <h2 className="text-lg text-center"></h2>
-          <p className="text-md text-center">|</p>
-          <p className="text-center mt-4"></p>
+          <h2 className="text-lg text-center">{experience.companyName}</h2>
+          <p className="text-md text-center">
+            {experience.positionTitle} | {experience.employementDate}
+          </p>
+          <p className="text-center mt-4">{experience.mainResponsibilities}</p>
         </div>
       </div>
     </div>
