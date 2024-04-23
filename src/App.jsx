@@ -6,12 +6,12 @@ function App() {
     number: "123321123",
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (setter) => (event) => {
     const { name, value } = event.target;
-    setGeneral({
-      ...general,
+    setter((previousData) => ({
+      ...previousData,
       [name]: value,
-    });
+    }));
   };
 
   return (
@@ -25,7 +25,7 @@ function App() {
               name="name"
               id="name"
               value={general.name}
-              onChange={handleInputChange}
+              onChange={handleInputChange(setGeneral)}
               className="bg-slate-100 rounded"
             />
             <label htmlFor="email">E-mail</label>
@@ -34,7 +34,7 @@ function App() {
               name="email"
               id="email"
               value={general.email}
-              onChange={handleInputChange}
+              onChange={handleInputChange(setGeneral)}
               className="bg-slate-100 rounded"
             />
             <label htmlFor="number">Phone Number</label>
@@ -43,7 +43,7 @@ function App() {
               name="number"
               id="number"
               value={general.number}
-              onChange={handleInputChange}
+              onChange={handleInputChange(setGeneral)}
               className="bg-slate-100 rounded"
             />
           </form>
